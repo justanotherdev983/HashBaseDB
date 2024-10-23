@@ -1,0 +1,5 @@
+src/temp.txt
+output/
+.vscode/
+database/winkel.db
+database/index.idx

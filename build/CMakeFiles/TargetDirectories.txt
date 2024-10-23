@@ -1,0 +1,3 @@
+/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles/hashbase.dir
+/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles/edit_cache.dir
+/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles/rebuild_cache.dir
