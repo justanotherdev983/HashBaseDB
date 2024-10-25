@@ -8,17 +8,19 @@
 #include <sstream>
 
 #define SEPERATOR ", "
+#define NUM_BUCKETS 100
+#define BUCKET_SIZE 64
 
 struct Hashmap {
     std::fstream index_file;
     std::fstream database_file;
 
     Hashmap(const std::string& db_path, const std::string& index_path) {
-        database_file.open(db_path, std::ios::in | std::ios::out | std::ios::binary);
-        index_file.open(index_path, std::ios::in | std::ios::out | std::ios::binary);
+        database_file.open(db_path, std::ios::in | std::ios::out | std::ios::app);
+        index_file.open(index_path, std::ios::in | std::ios::out | std::ios::app);
 
         if (!database_file.is_open() || !index_file.is_open()) {
-            std::cerr << "Error opening files!" << std::endl;
+            std::cout << "Error opening files!" << std::endl;
         } else {
             std::cout << "Files opened successfully." << std::endl;
         }
@@ -49,14 +51,13 @@ struct Hashmap {
     std::vector<std::string> get_val_from_key(const std::string& id_from_user) {
         uint64_t key = hashify(id_from_user);
         std::vector<std::string> values;
-        
-        index_file.clear();
-        index_file.seekg(0, std::ios::beg);
-        
         uint64_t temp_key;
         long offset;
         char comma;
+        uint64_t bucket = key % NUM_BUCKETS;
         
+        index_file.clear();
+        index_file.seekg(bucket * BUCKET_SIZE, std::ios::beg);
         
         while (index_file >> temp_key >> comma >> offset) {
             
@@ -68,11 +69,15 @@ struct Hashmap {
             
             if (temp_key == key) {
                 
+                
                 database_file.clear();
                 database_file.seekg(offset, std::ios::beg);
                 
                 std::string line;
                 std::getline(database_file, line);
+                
+                std::istringstream iss(line); // size of seperator
+                iss >> offset;
                 
                 
                 size_t sep_pos = line.find(SEPERATOR);
@@ -86,17 +91,57 @@ struct Hashmap {
         return values;
     }
 
-    void insert(uint64_t key, const std::string& value) {
+    void insert(uint64_t key, const std::vector<std::string>& values) {
+        database_file.clear();
+        index_file.clear();
+
+        std::cout << "Starting insertion \n" << "Key is: "<< key << std::endl;
         database_file.seekp(0, std::ios::end);
         long offset = database_file.tellp();
-        database_file << key << SEPERATOR << value << std::endl;
 
-        index_file.seekp(0, std::ios::end);
-        index_file << key << SEPERATOR << offset << std::endl;
+        std::stringstream line;
+
+        
+        line << key << SEPERATOR;
+
+        for (int i = 0; i < values.size(); ++i) {
+            line << values[i];
+            std::cout << values[i] << std::endl;
+            
+            if (i < values.size() - 1) {
+                line << SEPERATOR;
+            }
+        }
+
+        line << "\n";
+        std::cout << line.str() << std::endl;
+
+        if (database_file << line.str()) {
+            std::cout << "Inserted key and value into database succesfully" << std::endl;
+        } else {
+            std::cout << "Error writing to database_file!" << std::endl;
+        }
+
+        uint64_t bucket = key % NUM_BUCKETS;
+        index_file.seekp(bucket * BUCKET_SIZE, std::ios::beg); // Find the correct bucket
+        
+        if (index_file << key << SEPERATOR << offset << std::endl) {
+            std::cout << "Inserted key and offset into index succesfully" << std::endl;
+        } else {
+            std::cout << "Error writing to index_file!" << std::endl;
+        }
+
 
         database_file.flush();
         index_file.flush();
-        std::cout << "Inserted key and value into files." << std::endl;
+        
+        if (index_file.good() && database_file.good()) {
+            std::cout << "Inserted key and value into files." << std::endl;
+        } else {
+            std::cout << "Error writing to files!" << std::endl;
+        }
+
+        
     }
 
     void remove(uint64_t key) {
@@ -138,7 +183,7 @@ struct Hashmap {
         if (found) {
             std::cout << "Marked key " << key << " as deleted." << std::endl;
         } else {
-            std::cerr << "Key " << key << " not found." << std::endl;
+            std::cout << "Key " << key << " not found." << std::endl;
         }
     }
 
