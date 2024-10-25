@@ -3,3 +3,4 @@ output/
 .vscode/
 database/winkel.db
 database/index.idx
+cmake-build-debug
