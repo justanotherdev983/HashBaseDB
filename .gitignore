@@ -1,8 +1,7 @@
 src/core/temp.txt
 output/
 .vscode/
-database/winkel.db
-database/index.idx
+./idea
 cmake-build-debug/
 test/
 src/frontend/
