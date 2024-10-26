@@ -1,6 +1,10 @@
-src/temp.txt
+src/core/temp.txt
 output/
 .vscode/
 database/winkel.db
 database/index.idx
-cmake-build-debug
+cmake-build-debug/
+test/
+src/frontend/
+build/
+docs/

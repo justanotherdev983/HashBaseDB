@@ -1,6 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/hashbase.dir/src/main.cpp.o"
-  "CMakeFiles/hashbase.dir/src/main.cpp.o.d"
+  "CMakeFiles/hashbase.dir/src/core/database.cpp.o"
+  "CMakeFiles/hashbase.dir/src/core/database.cpp.o.d"
+  "CMakeFiles/hashbase.dir/src/core/hash.cpp.o"
+  "CMakeFiles/hashbase.dir/src/core/hash.cpp.o.d"
+  "CMakeFiles/hashbase.dir/src/core/main.cpp.o"
+  "CMakeFiles/hashbase.dir/src/core/main.cpp.o.d"
   "hashbase"
   "hashbase.pdb"
 )

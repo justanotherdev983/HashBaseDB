@@ -129,29 +129,77 @@ hashbase/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/build
 .PHONY : hashbase/fast
 
-src/main.o: src/main.cpp.o
-.PHONY : src/main.o
+src/core/database.o: src/core/database.cpp.o
+.PHONY : src/core/database.o
 
 # target to build an object file
-src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
+src/core/database.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/core/database.cpp.o
+.PHONY : src/core/database.cpp.o
 
-src/main.i: src/main.cpp.i
-.PHONY : src/main.i
+src/core/database.i: src/core/database.cpp.i
+.PHONY : src/core/database.i
 
 # target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
+src/core/database.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/core/database.cpp.i
+.PHONY : src/core/database.cpp.i
 
-src/main.s: src/main.cpp.s
-.PHONY : src/main.s
+src/core/database.s: src/core/database.cpp.s
+.PHONY : src/core/database.s
 
 # target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
+src/core/database.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/core/database.cpp.s
+.PHONY : src/core/database.cpp.s
+
+src/core/hash.o: src/core/hash.cpp.o
+.PHONY : src/core/hash.o
+
+# target to build an object file
+src/core/hash.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/core/hash.cpp.o
+.PHONY : src/core/hash.cpp.o
+
+src/core/hash.i: src/core/hash.cpp.i
+.PHONY : src/core/hash.i
+
+# target to preprocess a source file
+src/core/hash.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/core/hash.cpp.i
+.PHONY : src/core/hash.cpp.i
+
+src/core/hash.s: src/core/hash.cpp.s
+.PHONY : src/core/hash.s
+
+# target to generate assembly for a file
+src/core/hash.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/core/hash.cpp.s
+.PHONY : src/core/hash.cpp.s
+
+src/core/main.o: src/core/main.cpp.o
+.PHONY : src/core/main.o
+
+# target to build an object file
+src/core/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/core/main.cpp.o
+.PHONY : src/core/main.cpp.o
+
+src/core/main.i: src/core/main.cpp.i
+.PHONY : src/core/main.i
+
+# target to preprocess a source file
+src/core/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/core/main.cpp.i
+.PHONY : src/core/main.cpp.i
+
+src/core/main.s: src/core/main.cpp.s
+.PHONY : src/core/main.s
+
+# target to generate assembly for a file
+src/core/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/core/main.cpp.s
+.PHONY : src/core/main.cpp.s
 
 # Help Target
 help:
@@ -162,9 +210,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... hashbase"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
+	@echo "... src/core/database.o"
+	@echo "... src/core/database.i"
+	@echo "... src/core/database.s"
+	@echo "... src/core/hash.o"
+	@echo "... src/core/hash.i"
+	@echo "... src/core/hash.s"
+	@echo "... src/core/main.o"
+	@echo "... src/core/main.i"
+	@echo "... src/core/main.s"
 .PHONY : help
 
 

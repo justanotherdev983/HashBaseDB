@@ -117,7 +117,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=HashBaseDB
+CMAKE_PROJECT_NAME:STATIC=HashBase
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=C:/Program Files/JetBrains/CLion 2023.3.3/bin/mingw/bin/ranlib.exe
@@ -192,6 +192,15 @@ HashBaseDB_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 HashBaseDB_SOURCE_DIR:STATIC=//wsl.localhost/Ubuntu/home/boudewijn/code/c/HashBaseDB
+
+//Value Computed by CMake
+HashBase_BINARY_DIR:STATIC=//wsl.localhost/Ubuntu/home/boudewijn/code/c/HashBaseDB/cmake-build-debug
+
+//Value Computed by CMake
+HashBase_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+HashBase_SOURCE_DIR:STATIC=//wsl.localhost/Ubuntu/home/boudewijn/code/c/HashBaseDB
 
 
 ########################

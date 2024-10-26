@@ -1,32 +1,65 @@
-#include <iostream>
+#include "../include/hash.hpp" 
 #include <fstream>
+#include <iostream>
 #include <string>
 #include <cstdint>
 #include <limits>
 #include <cstring>
 #include <vector>
 #include <sstream>
+#include <filesystem>
 
-#define SEPERATOR ", "
-#define NUM_BUCKETS 100
-#define BUCKET_SIZE 64
+namespace Database {
 
-struct Hashmap {
     std::fstream index_file;
     std::fstream database_file;
 
-    Hashmap(const std::string& db_path, const std::string& index_path) {
-        database_file.open(db_path, std::ios::in | std::ios::out | std::ios::app);
-        index_file.open(index_path, std::ios::in | std::ios::out | std::ios::app);
+    constexpr size_t NUM_BUCKETS = 1000;
+    constexpr size_t BUCKET_SIZE = 640;
+    constexpr const char* SEPARATOR = ", ";
 
-        if (!database_file.is_open() || !index_file.is_open()) {
-            std::cout << "Error opening files!" << std::endl;
-        } else {
-            std::cout << "Files opened successfully." << std::endl;
+
+    void init_db(const std::string& db_path, const std::string& index_path) {
+        // Print absolute paths
+        std::filesystem::path db_absolute = std::filesystem::absolute(db_path);
+        std::filesystem::path idx_absolute = std::filesystem::absolute(index_path);
+        
+
+        std::filesystem::path dir_path = db_absolute.parent_path();
+        if (!std::filesystem::exists(dir_path)) {
+            std::cout << "Directory does not exist: " << dir_path << std::endl;
+            std::filesystem::create_directories(dir_path);
+            std::cout << "Created directory" << std::endl;
         }
+       
+        std::ofstream db_create(db_absolute, std::ios::out | std::ios::app);
+        if (!db_create.is_open()) {
+            throw std::runtime_error("Cannot create database file: " + std::string(std::strerror(errno)));
+        }
+        db_create.close();
+
+        std::ofstream idx_create(idx_absolute, std::ios::out | std::ios::app);
+        if (!idx_create.is_open()) {
+            throw std::runtime_error("Cannot create index file: " + std::string(std::strerror(errno)));
+        }
+        idx_create.close();
+
+        database_file.open(db_absolute, std::ios::app | std::ios::in | std::ios::out);
+        if (!database_file.is_open()) {
+            throw std::runtime_error("Cannot open database file for R/W: " + std::string(std::strerror(errno)));
+        }
+
+        index_file.open(idx_absolute, std::ios::app | std::ios::in | std::ios::out);
+        if (!index_file.is_open()) {
+            throw std::runtime_error("Cannot open index file for R/W: " + std::string(std::strerror(errno)));
+        }
+
+        std::cout << "Files created and opened successfully." << std::endl;
+    
+    
     }
 
-    ~Hashmap() {
+    void cleanup_db() {
         if (database_file.is_open()) {
             database_file.close();
             std::cout << "Database file closed." << std::endl;
@@ -37,24 +70,13 @@ struct Hashmap {
         }
     }
 
-    uint64_t hashify(const std::string& value) {
-        const uint64_t FNV_prime = 0x100000001b3;
-        uint64_t hash_value = 0xcbf29ce484222325;
-
-        for (char c : value) {
-            hash_value ^= c;
-            hash_value *= FNV_prime;
-        }
-        return hash_value;
-    }
-
-    std::vector<std::string> get_val_from_key(const std::string& id_from_user) {
-        uint64_t key = hashify(id_from_user);
+    std::vector<std::string> get_val(const std::string& id_from_user) {
+        uint64_t hashed_key = Hash::hashify(id_from_user);
         std::vector<std::string> values;
         uint64_t temp_key;
         long offset;
         char comma;
-        uint64_t bucket = key % NUM_BUCKETS;
+        uint64_t bucket = Hash::get_bucket(hashed_key, NUM_BUCKETS);
         
         index_file.clear();
         index_file.seekg(bucket * BUCKET_SIZE, std::ios::beg);
@@ -67,7 +89,7 @@ struct Hashmap {
                 continue;
             }
             
-            if (temp_key == key) {
+            if (temp_key == hashed_key) {
                 
                 
                 database_file.clear();
@@ -76,13 +98,13 @@ struct Hashmap {
                 std::string line;
                 std::getline(database_file, line);
                 
-                std::istringstream iss(line); // size of seperator
+                std::istringstream iss(line); // size of SEPARATOR
                 iss >> offset;
                 
                 
-                size_t sep_pos = line.find(SEPERATOR);
+                size_t sep_pos = line.find(SEPARATOR);
                 if (sep_pos != std::string::npos) {
-                    values.push_back(line.substr(sep_pos + strlen(SEPERATOR)));
+                    values.push_back(line.substr(sep_pos + strlen(SEPARATOR)));
                 }
             }
             
@@ -91,7 +113,7 @@ struct Hashmap {
         return values;
     }
 
-    void insert(uint64_t key, const std::vector<std::string>& values) {
+    void insert_entry(const std::string& key, const std::vector<std::string>& values) {
         database_file.clear();
         index_file.clear();
 
@@ -100,16 +122,16 @@ struct Hashmap {
         long offset = database_file.tellp();
 
         std::stringstream line;
-
+        uint64_t hash_key = Hash::hashify(key);
         
-        line << key << SEPERATOR;
+        line << hash_key << SEPARATOR;
 
-        for (int i = 0; i < values.size(); ++i) {
+        for (size_t i = 0; i < values.size(); ++i) {
             line << values[i];
             std::cout << values[i] << std::endl;
             
             if (i < values.size() - 1) {
-                line << SEPERATOR;
+                line << SEPARATOR;
             }
         }
 
@@ -122,10 +144,12 @@ struct Hashmap {
             std::cout << "Error writing to database_file!" << std::endl;
         }
 
-        uint64_t bucket = key % NUM_BUCKETS;
+        uint64_t hashed_key = Hash::hashify(key);
+        uint64_t bucket = Hash::get_bucket(hashed_key, NUM_BUCKETS);
+
         index_file.seekp(bucket * BUCKET_SIZE, std::ios::beg); // Find the correct bucket
         
-        if (index_file << key << SEPERATOR << offset << std::endl) {
+        if (index_file << hashed_key << SEPARATOR << offset << std::endl) {
             std::cout << "Inserted key and offset into index succesfully" << std::endl;
         } else {
             std::cout << "Error writing to index_file!" << std::endl;
@@ -139,19 +163,17 @@ struct Hashmap {
             std::cout << "Inserted key and value into files." << std::endl;
         } else {
             std::cout << "Error writing to files!" << std::endl;
-        }
-
-        
+        }  
     }
 
-    void remove(uint64_t key) {
+    void remove_entry(const std::string& key) {
         index_file.clear();
         index_file.seekg(0, std::ios::beg);
 
         uint64_t temp_key;
         long offset;
         char comma;
-
+        uint64_t hashed_key = Hash::hashify(key);
         
         std::vector<std::string> lines;
         std::string line;
@@ -162,9 +184,9 @@ struct Hashmap {
             std::istringstream iss(line);
 
             if (iss >> temp_key >> comma >> offset) {
-                if (temp_key == key) {
+                if (temp_key == hashed_key) {
                     found = true;
-                    line = "d" + std::to_string(temp_key) + SEPERATOR + std::to_string(offset);
+                    line = "d" + std::to_string(temp_key) + SEPARATOR + std::to_string(offset);
                 }
             }
             lines.push_back(line);
@@ -187,7 +209,6 @@ struct Hashmap {
         }
     }
 
-    
     void debug_print_files() {
         std::cout << "\nDatabase contents:\n";
         database_file.clear();
@@ -207,11 +228,4 @@ struct Hashmap {
         }
         std::cout << std::endl;
     }
-};
-
-int main() {
-    Hashmap hashmap("../database/winkel.db", "../database/index.idx");
-    hashmap.debug_print_files();
-    
-    return 0;
 }
