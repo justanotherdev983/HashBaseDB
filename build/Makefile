@@ -249,6 +249,30 @@ src/services/db_service.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/services/db_service.cpp.s
 .PHONY : src/services/db_service.cpp.s
 
+src/test/unit_tests.o: src/test/unit_tests.cpp.o
+.PHONY : src/test/unit_tests.o
+
+# target to build an object file
+src/test/unit_tests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/test/unit_tests.cpp.o
+.PHONY : src/test/unit_tests.cpp.o
+
+src/test/unit_tests.i: src/test/unit_tests.cpp.i
+.PHONY : src/test/unit_tests.i
+
+# target to preprocess a source file
+src/test/unit_tests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/test/unit_tests.cpp.i
+.PHONY : src/test/unit_tests.cpp.i
+
+src/test/unit_tests.s: src/test/unit_tests.cpp.s
+.PHONY : src/test/unit_tests.s
+
+# target to generate assembly for a file
+src/test/unit_tests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/test/unit_tests.cpp.s
+.PHONY : src/test/unit_tests.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -273,6 +297,9 @@ help:
 	@echo "... src/services/db_service.o"
 	@echo "... src/services/db_service.i"
 	@echo "... src/services/db_service.s"
+	@echo "... src/test/unit_tests.o"
+	@echo "... src/test/unit_tests.i"
+	@echo "... src/test/unit_tests.s"
 .PHONY : help
 
 

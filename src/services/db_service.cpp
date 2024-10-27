@@ -1,6 +1,8 @@
+#include <iostream>
+
 #include "../include/frontend/window.hpp"
 #include "../include/core/database.hpp"
-#include <iostream>
+#include "../include/test/unit_tests.hpp"
 
 namespace Database_service{
     int run(int argc, char* argv[]) {
@@ -15,13 +17,7 @@ namespace Database_service{
 
     Database::init_db(database_file_path, index_file_path);
 
-
-    const std::string key = "1234";
-    const std::vector<std::string> values = {"apple", "banana", "cherry"};
-    
-    // Create
-    Database::insert_entry(key, values);
-    std::cout << "Inserted entry for key: " << key << std::endl;
+    Unit_tests::basic_insert_test();
 
     
     Window::run();

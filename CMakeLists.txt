@@ -9,10 +9,10 @@ set(SOURCES
     src/core/database.cpp
     src/core/hash.cpp
     src/frontend/window.cpp
-    src/services/db_service.cpp 
+    src/services/db_service.cpp
+    src/test/unit_tests.cpp
+
 )
-
-
 include_directories(include)
 
 

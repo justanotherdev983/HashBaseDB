@@ -1,4 +1,4 @@
-
+# Ignore build outputs and temporary files
 output/
 *.o
 *.obj
@@ -9,42 +9,43 @@ output/
 *.dll
 *.dylib
 
-
+# Ignore CMake build and config files
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
 Makefile
 
-
+# Ignore Visual Studio Code workspace settings
 .vscode/
 
+# Ignore macOS files
+.DS_Store
 
-
-
-
+# Ignore Windows files
 Thumbs.db
 Desktop.ini
 
-
+# Ignore dependency or lock files
 *.log
 
-
+# Ignore user-specific or backup files
 *.swp
 *.bak
 *.tmp
 
-
+# Ignore unit test binaries or output
 test/unit_tests
 test/*.o
 
+# Ignore empty test file if not yet used
 test/unit_tests.cpp
 
-
+# Ignore any compiled or generated files in database folder
 database/*.db
 database/*.idx
 
-
+# Ignore the output directory and any contents in it
 output/
 
-
+# Optional: Ignore documentation or temporary notes files (if not checked in)
 docs/notes.md
