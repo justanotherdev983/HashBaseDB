@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/hashbase.dir/src/core/main.cpp.o CMakeFiles/hashbase.dir/src/core/database.cpp.o CMakeFiles/hashbase.dir/src/core/hash.cpp.o -o hashbase 
+/usr/bin/c++ CMakeFiles/hashbase.dir/src/core/main.cpp.o CMakeFiles/hashbase.dir/src/core/database.cpp.o CMakeFiles/hashbase.dir/src/core/hash.cpp.o CMakeFiles/hashbase.dir/src/frontend/window.cpp.o CMakeFiles/hashbase.dir/src/services/db_service.cpp.o -o hashbase  -L/usr/lib/x86_64-linux-gnu  -lSDL2 

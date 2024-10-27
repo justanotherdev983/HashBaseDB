@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/boudewijn/code/c/HashBaseDB/include
+CXX_INCLUDES = -I/home/boudewijn/code/c/HashBaseDB/include -I/usr/include/SDL2
 
 CXX_FLAGS = -std=gnu++20
 

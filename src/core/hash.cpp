@@ -1,11 +1,4 @@
 #include <iostream>
-#include <fstream>
-#include <string>
-#include <cstdint>
-#include <limits>
-#include <cstring>
-#include <vector>
-#include <sstream>
 
 namespace Hash {
     uint64_t hashify(const std::string& value) {

@@ -201,6 +201,54 @@ src/core/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/core/main.cpp.s
 .PHONY : src/core/main.cpp.s
 
+src/frontend/window.o: src/frontend/window.cpp.o
+.PHONY : src/frontend/window.o
+
+# target to build an object file
+src/frontend/window.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/frontend/window.cpp.o
+.PHONY : src/frontend/window.cpp.o
+
+src/frontend/window.i: src/frontend/window.cpp.i
+.PHONY : src/frontend/window.i
+
+# target to preprocess a source file
+src/frontend/window.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/frontend/window.cpp.i
+.PHONY : src/frontend/window.cpp.i
+
+src/frontend/window.s: src/frontend/window.cpp.s
+.PHONY : src/frontend/window.s
+
+# target to generate assembly for a file
+src/frontend/window.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/frontend/window.cpp.s
+.PHONY : src/frontend/window.cpp.s
+
+src/services/db_service.o: src/services/db_service.cpp.o
+.PHONY : src/services/db_service.o
+
+# target to build an object file
+src/services/db_service.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/services/db_service.cpp.o
+.PHONY : src/services/db_service.cpp.o
+
+src/services/db_service.i: src/services/db_service.cpp.i
+.PHONY : src/services/db_service.i
+
+# target to preprocess a source file
+src/services/db_service.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/services/db_service.cpp.i
+.PHONY : src/services/db_service.cpp.i
+
+src/services/db_service.s: src/services/db_service.cpp.s
+.PHONY : src/services/db_service.s
+
+# target to generate assembly for a file
+src/services/db_service.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/services/db_service.cpp.s
+.PHONY : src/services/db_service.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -219,6 +267,12 @@ help:
 	@echo "... src/core/main.o"
 	@echo "... src/core/main.i"
 	@echo "... src/core/main.s"
+	@echo "... src/frontend/window.o"
+	@echo "... src/frontend/window.i"
+	@echo "... src/frontend/window.s"
+	@echo "... src/services/db_service.o"
+	@echo "... src/services/db_service.i"
+	@echo "... src/services/db_service.s"
 .PHONY : help
 
 
