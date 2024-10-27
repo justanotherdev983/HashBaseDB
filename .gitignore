@@ -33,12 +33,6 @@ Desktop.ini
 *.bak
 *.tmp
 
-# Ignore unit test binaries or output
-test/unit_tests
-test/*.o
-
-# Ignore empty test file if not yet used
-test/unit_tests.cpp
 
 # Ignore any compiled or generated files in database folder
 database/*.db
