@@ -6,26 +6,50 @@
 
 namespace Database_service{
     int run(int argc, char* argv[]) {
-    
-    if (!Window::initialize()) {
-        std::cout << "Failed to initialize SDL window" << std::endl;
-        return -1;
+        
+        if (!Window::initialize()) {
+            std::cout << "Failed to initialize SDL window" << std::endl;
+            return -1;
+        }
+
+        const std::string& database_file_path = Window::get_database_file_path();
+        const std::string& index_file_path = Window::get_index_file_path();
+
+        Database::init_db(database_file_path, index_file_path);
+
+        Unit_tests::basic_insert_test();
+
+        
+        Window::run();
+
+        Database::cleanup_db();
+        Window::cleanup();
+
+        return 0;
     }
 
-    const std::string& database_file_path = Window::get_database_file_path();
-    const std::string& index_file_path = Window::get_index_file_path();
+    std::vector<std::string> search_database() {
+        std::vector<std::string> results;
+        Database::database_file.clear();
+        Database::database_file.seekg(0);
+        std::string line;
 
-    Database::init_db(database_file_path, index_file_path);
+        while (std::getline(Database::database_file, line)) {
+            results.push_back(line);
+        }
 
-    Unit_tests::basic_insert_test();
+        Database::index_file.clear();
+        Database::index_file.seekg(0);
 
-    
-    Window::run();
+        while (std::getline(Database::index_file, line)) {
+            results.push_back(line);
+        }
 
-    Database::cleanup_db();
-    Window::cleanup();
+        return results;
+    }
 
-    return 0;
+    void add_record(const std::string& key, const std::vector<std::string>& values) {
+        Database::insert_entry(key, values);
+    }
 }
 
-}
