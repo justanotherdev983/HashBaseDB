@@ -177,29 +177,101 @@ src/core/hash.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/core/hash.cpp.s
 .PHONY : src/core/hash.cpp.s
 
-src/core/main.o: src/core/main.cpp.o
-.PHONY : src/core/main.o
+src/frontend/components/add_record.o: src/frontend/components/add_record.cpp.o
+.PHONY : src/frontend/components/add_record.o
 
 # target to build an object file
-src/core/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/core/main.cpp.o
-.PHONY : src/core/main.cpp.o
+src/frontend/components/add_record.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/frontend/components/add_record.cpp.o
+.PHONY : src/frontend/components/add_record.cpp.o
 
-src/core/main.i: src/core/main.cpp.i
-.PHONY : src/core/main.i
+src/frontend/components/add_record.i: src/frontend/components/add_record.cpp.i
+.PHONY : src/frontend/components/add_record.i
 
 # target to preprocess a source file
-src/core/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/core/main.cpp.i
-.PHONY : src/core/main.cpp.i
+src/frontend/components/add_record.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/frontend/components/add_record.cpp.i
+.PHONY : src/frontend/components/add_record.cpp.i
 
-src/core/main.s: src/core/main.cpp.s
-.PHONY : src/core/main.s
+src/frontend/components/add_record.s: src/frontend/components/add_record.cpp.s
+.PHONY : src/frontend/components/add_record.s
 
 # target to generate assembly for a file
-src/core/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/core/main.cpp.s
-.PHONY : src/core/main.cpp.s
+src/frontend/components/add_record.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/frontend/components/add_record.cpp.s
+.PHONY : src/frontend/components/add_record.cpp.s
+
+src/frontend/components/main_menu.o: src/frontend/components/main_menu.cpp.o
+.PHONY : src/frontend/components/main_menu.o
+
+# target to build an object file
+src/frontend/components/main_menu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/frontend/components/main_menu.cpp.o
+.PHONY : src/frontend/components/main_menu.cpp.o
+
+src/frontend/components/main_menu.i: src/frontend/components/main_menu.cpp.i
+.PHONY : src/frontend/components/main_menu.i
+
+# target to preprocess a source file
+src/frontend/components/main_menu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/frontend/components/main_menu.cpp.i
+.PHONY : src/frontend/components/main_menu.cpp.i
+
+src/frontend/components/main_menu.s: src/frontend/components/main_menu.cpp.s
+.PHONY : src/frontend/components/main_menu.s
+
+# target to generate assembly for a file
+src/frontend/components/main_menu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/frontend/components/main_menu.cpp.s
+.PHONY : src/frontend/components/main_menu.cpp.s
+
+src/frontend/components/remove_record.o: src/frontend/components/remove_record.cpp.o
+.PHONY : src/frontend/components/remove_record.o
+
+# target to build an object file
+src/frontend/components/remove_record.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/frontend/components/remove_record.cpp.o
+.PHONY : src/frontend/components/remove_record.cpp.o
+
+src/frontend/components/remove_record.i: src/frontend/components/remove_record.cpp.i
+.PHONY : src/frontend/components/remove_record.i
+
+# target to preprocess a source file
+src/frontend/components/remove_record.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/frontend/components/remove_record.cpp.i
+.PHONY : src/frontend/components/remove_record.cpp.i
+
+src/frontend/components/remove_record.s: src/frontend/components/remove_record.cpp.s
+.PHONY : src/frontend/components/remove_record.s
+
+# target to generate assembly for a file
+src/frontend/components/remove_record.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/frontend/components/remove_record.cpp.s
+.PHONY : src/frontend/components/remove_record.cpp.s
+
+src/frontend/components/search_record.o: src/frontend/components/search_record.cpp.o
+.PHONY : src/frontend/components/search_record.o
+
+# target to build an object file
+src/frontend/components/search_record.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/frontend/components/search_record.cpp.o
+.PHONY : src/frontend/components/search_record.cpp.o
+
+src/frontend/components/search_record.i: src/frontend/components/search_record.cpp.i
+.PHONY : src/frontend/components/search_record.i
+
+# target to preprocess a source file
+src/frontend/components/search_record.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/frontend/components/search_record.cpp.i
+.PHONY : src/frontend/components/search_record.cpp.i
+
+src/frontend/components/search_record.s: src/frontend/components/search_record.cpp.s
+.PHONY : src/frontend/components/search_record.s
+
+# target to generate assembly for a file
+src/frontend/components/search_record.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/frontend/components/search_record.cpp.s
+.PHONY : src/frontend/components/search_record.cpp.s
 
 src/frontend/window.o: src/frontend/window.cpp.o
 .PHONY : src/frontend/window.o
@@ -225,6 +297,30 @@ src/frontend/window.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/frontend/window.cpp.s
 .PHONY : src/frontend/window.cpp.s
 
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
+
 src/services/db_service.o: src/services/db_service.cpp.o
 .PHONY : src/services/db_service.o
 
@@ -248,6 +344,30 @@ src/services/db_service.s: src/services/db_service.cpp.s
 src/services/db_service.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/services/db_service.cpp.s
 .PHONY : src/services/db_service.cpp.s
+
+src/services/ui_service.o: src/services/ui_service.cpp.o
+.PHONY : src/services/ui_service.o
+
+# target to build an object file
+src/services/ui_service.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/services/ui_service.cpp.o
+.PHONY : src/services/ui_service.cpp.o
+
+src/services/ui_service.i: src/services/ui_service.cpp.i
+.PHONY : src/services/ui_service.i
+
+# target to preprocess a source file
+src/services/ui_service.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/services/ui_service.cpp.i
+.PHONY : src/services/ui_service.cpp.i
+
+src/services/ui_service.s: src/services/ui_service.cpp.s
+.PHONY : src/services/ui_service.s
+
+# target to generate assembly for a file
+src/services/ui_service.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/src/services/ui_service.cpp.s
+.PHONY : src/services/ui_service.cpp.s
 
 src/test/unit_tests.o: src/test/unit_tests.cpp.o
 .PHONY : src/test/unit_tests.o
@@ -288,15 +408,30 @@ help:
 	@echo "... src/core/hash.o"
 	@echo "... src/core/hash.i"
 	@echo "... src/core/hash.s"
-	@echo "... src/core/main.o"
-	@echo "... src/core/main.i"
-	@echo "... src/core/main.s"
+	@echo "... src/frontend/components/add_record.o"
+	@echo "... src/frontend/components/add_record.i"
+	@echo "... src/frontend/components/add_record.s"
+	@echo "... src/frontend/components/main_menu.o"
+	@echo "... src/frontend/components/main_menu.i"
+	@echo "... src/frontend/components/main_menu.s"
+	@echo "... src/frontend/components/remove_record.o"
+	@echo "... src/frontend/components/remove_record.i"
+	@echo "... src/frontend/components/remove_record.s"
+	@echo "... src/frontend/components/search_record.o"
+	@echo "... src/frontend/components/search_record.i"
+	@echo "... src/frontend/components/search_record.s"
 	@echo "... src/frontend/window.o"
 	@echo "... src/frontend/window.i"
 	@echo "... src/frontend/window.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 	@echo "... src/services/db_service.o"
 	@echo "... src/services/db_service.i"
 	@echo "... src/services/db_service.s"
+	@echo "... src/services/ui_service.o"
+	@echo "... src/services/ui_service.i"
+	@echo "... src/services/ui_service.s"
 	@echo "... src/test/unit_tests.o"
 	@echo "... src/test/unit_tests.i"
 	@echo "... src/test/unit_tests.s"

@@ -69,24 +69,10 @@ include CMakeFiles/hashbase.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/hashbase.dir/flags.make
 
-CMakeFiles/hashbase.dir/src/core/main.cpp.o: CMakeFiles/hashbase.dir/flags.make
-CMakeFiles/hashbase.dir/src/core/main.cpp.o: ../src/core/main.cpp
-CMakeFiles/hashbase.dir/src/core/main.cpp.o: CMakeFiles/hashbase.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/hashbase.dir/src/core/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/hashbase.dir/src/core/main.cpp.o -MF CMakeFiles/hashbase.dir/src/core/main.cpp.o.d -o CMakeFiles/hashbase.dir/src/core/main.cpp.o -c /home/boudewijn/code/c/HashBaseDB/src/core/main.cpp
-
-CMakeFiles/hashbase.dir/src/core/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hashbase.dir/src/core/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/boudewijn/code/c/HashBaseDB/src/core/main.cpp > CMakeFiles/hashbase.dir/src/core/main.cpp.i
-
-CMakeFiles/hashbase.dir/src/core/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hashbase.dir/src/core/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/boudewijn/code/c/HashBaseDB/src/core/main.cpp -o CMakeFiles/hashbase.dir/src/core/main.cpp.s
-
 CMakeFiles/hashbase.dir/src/core/database.cpp.o: CMakeFiles/hashbase.dir/flags.make
 CMakeFiles/hashbase.dir/src/core/database.cpp.o: ../src/core/database.cpp
 CMakeFiles/hashbase.dir/src/core/database.cpp.o: CMakeFiles/hashbase.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/hashbase.dir/src/core/database.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/hashbase.dir/src/core/database.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/hashbase.dir/src/core/database.cpp.o -MF CMakeFiles/hashbase.dir/src/core/database.cpp.o.d -o CMakeFiles/hashbase.dir/src/core/database.cpp.o -c /home/boudewijn/code/c/HashBaseDB/src/core/database.cpp
 
 CMakeFiles/hashbase.dir/src/core/database.cpp.i: cmake_force
@@ -100,7 +86,7 @@ CMakeFiles/hashbase.dir/src/core/database.cpp.s: cmake_force
 CMakeFiles/hashbase.dir/src/core/hash.cpp.o: CMakeFiles/hashbase.dir/flags.make
 CMakeFiles/hashbase.dir/src/core/hash.cpp.o: ../src/core/hash.cpp
 CMakeFiles/hashbase.dir/src/core/hash.cpp.o: CMakeFiles/hashbase.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/hashbase.dir/src/core/hash.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/hashbase.dir/src/core/hash.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/hashbase.dir/src/core/hash.cpp.o -MF CMakeFiles/hashbase.dir/src/core/hash.cpp.o.d -o CMakeFiles/hashbase.dir/src/core/hash.cpp.o -c /home/boudewijn/code/c/HashBaseDB/src/core/hash.cpp
 
 CMakeFiles/hashbase.dir/src/core/hash.cpp.i: cmake_force
@@ -111,10 +97,66 @@ CMakeFiles/hashbase.dir/src/core/hash.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hashbase.dir/src/core/hash.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/boudewijn/code/c/HashBaseDB/src/core/hash.cpp -o CMakeFiles/hashbase.dir/src/core/hash.cpp.s
 
+CMakeFiles/hashbase.dir/src/frontend/components/add_record.cpp.o: CMakeFiles/hashbase.dir/flags.make
+CMakeFiles/hashbase.dir/src/frontend/components/add_record.cpp.o: ../src/frontend/components/add_record.cpp
+CMakeFiles/hashbase.dir/src/frontend/components/add_record.cpp.o: CMakeFiles/hashbase.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/hashbase.dir/src/frontend/components/add_record.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/hashbase.dir/src/frontend/components/add_record.cpp.o -MF CMakeFiles/hashbase.dir/src/frontend/components/add_record.cpp.o.d -o CMakeFiles/hashbase.dir/src/frontend/components/add_record.cpp.o -c /home/boudewijn/code/c/HashBaseDB/src/frontend/components/add_record.cpp
+
+CMakeFiles/hashbase.dir/src/frontend/components/add_record.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hashbase.dir/src/frontend/components/add_record.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/boudewijn/code/c/HashBaseDB/src/frontend/components/add_record.cpp > CMakeFiles/hashbase.dir/src/frontend/components/add_record.cpp.i
+
+CMakeFiles/hashbase.dir/src/frontend/components/add_record.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hashbase.dir/src/frontend/components/add_record.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/boudewijn/code/c/HashBaseDB/src/frontend/components/add_record.cpp -o CMakeFiles/hashbase.dir/src/frontend/components/add_record.cpp.s
+
+CMakeFiles/hashbase.dir/src/frontend/components/main_menu.cpp.o: CMakeFiles/hashbase.dir/flags.make
+CMakeFiles/hashbase.dir/src/frontend/components/main_menu.cpp.o: ../src/frontend/components/main_menu.cpp
+CMakeFiles/hashbase.dir/src/frontend/components/main_menu.cpp.o: CMakeFiles/hashbase.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/hashbase.dir/src/frontend/components/main_menu.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/hashbase.dir/src/frontend/components/main_menu.cpp.o -MF CMakeFiles/hashbase.dir/src/frontend/components/main_menu.cpp.o.d -o CMakeFiles/hashbase.dir/src/frontend/components/main_menu.cpp.o -c /home/boudewijn/code/c/HashBaseDB/src/frontend/components/main_menu.cpp
+
+CMakeFiles/hashbase.dir/src/frontend/components/main_menu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hashbase.dir/src/frontend/components/main_menu.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/boudewijn/code/c/HashBaseDB/src/frontend/components/main_menu.cpp > CMakeFiles/hashbase.dir/src/frontend/components/main_menu.cpp.i
+
+CMakeFiles/hashbase.dir/src/frontend/components/main_menu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hashbase.dir/src/frontend/components/main_menu.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/boudewijn/code/c/HashBaseDB/src/frontend/components/main_menu.cpp -o CMakeFiles/hashbase.dir/src/frontend/components/main_menu.cpp.s
+
+CMakeFiles/hashbase.dir/src/frontend/components/remove_record.cpp.o: CMakeFiles/hashbase.dir/flags.make
+CMakeFiles/hashbase.dir/src/frontend/components/remove_record.cpp.o: ../src/frontend/components/remove_record.cpp
+CMakeFiles/hashbase.dir/src/frontend/components/remove_record.cpp.o: CMakeFiles/hashbase.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/hashbase.dir/src/frontend/components/remove_record.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/hashbase.dir/src/frontend/components/remove_record.cpp.o -MF CMakeFiles/hashbase.dir/src/frontend/components/remove_record.cpp.o.d -o CMakeFiles/hashbase.dir/src/frontend/components/remove_record.cpp.o -c /home/boudewijn/code/c/HashBaseDB/src/frontend/components/remove_record.cpp
+
+CMakeFiles/hashbase.dir/src/frontend/components/remove_record.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hashbase.dir/src/frontend/components/remove_record.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/boudewijn/code/c/HashBaseDB/src/frontend/components/remove_record.cpp > CMakeFiles/hashbase.dir/src/frontend/components/remove_record.cpp.i
+
+CMakeFiles/hashbase.dir/src/frontend/components/remove_record.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hashbase.dir/src/frontend/components/remove_record.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/boudewijn/code/c/HashBaseDB/src/frontend/components/remove_record.cpp -o CMakeFiles/hashbase.dir/src/frontend/components/remove_record.cpp.s
+
+CMakeFiles/hashbase.dir/src/frontend/components/search_record.cpp.o: CMakeFiles/hashbase.dir/flags.make
+CMakeFiles/hashbase.dir/src/frontend/components/search_record.cpp.o: ../src/frontend/components/search_record.cpp
+CMakeFiles/hashbase.dir/src/frontend/components/search_record.cpp.o: CMakeFiles/hashbase.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/hashbase.dir/src/frontend/components/search_record.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/hashbase.dir/src/frontend/components/search_record.cpp.o -MF CMakeFiles/hashbase.dir/src/frontend/components/search_record.cpp.o.d -o CMakeFiles/hashbase.dir/src/frontend/components/search_record.cpp.o -c /home/boudewijn/code/c/HashBaseDB/src/frontend/components/search_record.cpp
+
+CMakeFiles/hashbase.dir/src/frontend/components/search_record.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hashbase.dir/src/frontend/components/search_record.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/boudewijn/code/c/HashBaseDB/src/frontend/components/search_record.cpp > CMakeFiles/hashbase.dir/src/frontend/components/search_record.cpp.i
+
+CMakeFiles/hashbase.dir/src/frontend/components/search_record.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hashbase.dir/src/frontend/components/search_record.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/boudewijn/code/c/HashBaseDB/src/frontend/components/search_record.cpp -o CMakeFiles/hashbase.dir/src/frontend/components/search_record.cpp.s
+
 CMakeFiles/hashbase.dir/src/frontend/window.cpp.o: CMakeFiles/hashbase.dir/flags.make
 CMakeFiles/hashbase.dir/src/frontend/window.cpp.o: ../src/frontend/window.cpp
 CMakeFiles/hashbase.dir/src/frontend/window.cpp.o: CMakeFiles/hashbase.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/hashbase.dir/src/frontend/window.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/hashbase.dir/src/frontend/window.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/hashbase.dir/src/frontend/window.cpp.o -MF CMakeFiles/hashbase.dir/src/frontend/window.cpp.o.d -o CMakeFiles/hashbase.dir/src/frontend/window.cpp.o -c /home/boudewijn/code/c/HashBaseDB/src/frontend/window.cpp
 
 CMakeFiles/hashbase.dir/src/frontend/window.cpp.i: cmake_force
@@ -125,10 +167,24 @@ CMakeFiles/hashbase.dir/src/frontend/window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hashbase.dir/src/frontend/window.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/boudewijn/code/c/HashBaseDB/src/frontend/window.cpp -o CMakeFiles/hashbase.dir/src/frontend/window.cpp.s
 
+CMakeFiles/hashbase.dir/src/main.cpp.o: CMakeFiles/hashbase.dir/flags.make
+CMakeFiles/hashbase.dir/src/main.cpp.o: ../src/main.cpp
+CMakeFiles/hashbase.dir/src/main.cpp.o: CMakeFiles/hashbase.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/hashbase.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/hashbase.dir/src/main.cpp.o -MF CMakeFiles/hashbase.dir/src/main.cpp.o.d -o CMakeFiles/hashbase.dir/src/main.cpp.o -c /home/boudewijn/code/c/HashBaseDB/src/main.cpp
+
+CMakeFiles/hashbase.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hashbase.dir/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/boudewijn/code/c/HashBaseDB/src/main.cpp > CMakeFiles/hashbase.dir/src/main.cpp.i
+
+CMakeFiles/hashbase.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hashbase.dir/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/boudewijn/code/c/HashBaseDB/src/main.cpp -o CMakeFiles/hashbase.dir/src/main.cpp.s
+
 CMakeFiles/hashbase.dir/src/services/db_service.cpp.o: CMakeFiles/hashbase.dir/flags.make
 CMakeFiles/hashbase.dir/src/services/db_service.cpp.o: ../src/services/db_service.cpp
 CMakeFiles/hashbase.dir/src/services/db_service.cpp.o: CMakeFiles/hashbase.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/hashbase.dir/src/services/db_service.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/hashbase.dir/src/services/db_service.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/hashbase.dir/src/services/db_service.cpp.o -MF CMakeFiles/hashbase.dir/src/services/db_service.cpp.o.d -o CMakeFiles/hashbase.dir/src/services/db_service.cpp.o -c /home/boudewijn/code/c/HashBaseDB/src/services/db_service.cpp
 
 CMakeFiles/hashbase.dir/src/services/db_service.cpp.i: cmake_force
@@ -139,10 +195,24 @@ CMakeFiles/hashbase.dir/src/services/db_service.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hashbase.dir/src/services/db_service.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/boudewijn/code/c/HashBaseDB/src/services/db_service.cpp -o CMakeFiles/hashbase.dir/src/services/db_service.cpp.s
 
+CMakeFiles/hashbase.dir/src/services/ui_service.cpp.o: CMakeFiles/hashbase.dir/flags.make
+CMakeFiles/hashbase.dir/src/services/ui_service.cpp.o: ../src/services/ui_service.cpp
+CMakeFiles/hashbase.dir/src/services/ui_service.cpp.o: CMakeFiles/hashbase.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/hashbase.dir/src/services/ui_service.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/hashbase.dir/src/services/ui_service.cpp.o -MF CMakeFiles/hashbase.dir/src/services/ui_service.cpp.o.d -o CMakeFiles/hashbase.dir/src/services/ui_service.cpp.o -c /home/boudewijn/code/c/HashBaseDB/src/services/ui_service.cpp
+
+CMakeFiles/hashbase.dir/src/services/ui_service.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hashbase.dir/src/services/ui_service.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/boudewijn/code/c/HashBaseDB/src/services/ui_service.cpp > CMakeFiles/hashbase.dir/src/services/ui_service.cpp.i
+
+CMakeFiles/hashbase.dir/src/services/ui_service.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hashbase.dir/src/services/ui_service.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/boudewijn/code/c/HashBaseDB/src/services/ui_service.cpp -o CMakeFiles/hashbase.dir/src/services/ui_service.cpp.s
+
 CMakeFiles/hashbase.dir/src/test/unit_tests.cpp.o: CMakeFiles/hashbase.dir/flags.make
 CMakeFiles/hashbase.dir/src/test/unit_tests.cpp.o: ../src/test/unit_tests.cpp
 CMakeFiles/hashbase.dir/src/test/unit_tests.cpp.o: CMakeFiles/hashbase.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/hashbase.dir/src/test/unit_tests.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/hashbase.dir/src/test/unit_tests.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/hashbase.dir/src/test/unit_tests.cpp.o -MF CMakeFiles/hashbase.dir/src/test/unit_tests.cpp.o.d -o CMakeFiles/hashbase.dir/src/test/unit_tests.cpp.o -c /home/boudewijn/code/c/HashBaseDB/src/test/unit_tests.cpp
 
 CMakeFiles/hashbase.dir/src/test/unit_tests.cpp.i: cmake_force
@@ -155,25 +225,35 @@ CMakeFiles/hashbase.dir/src/test/unit_tests.cpp.s: cmake_force
 
 # Object files for target hashbase
 hashbase_OBJECTS = \
-"CMakeFiles/hashbase.dir/src/core/main.cpp.o" \
 "CMakeFiles/hashbase.dir/src/core/database.cpp.o" \
 "CMakeFiles/hashbase.dir/src/core/hash.cpp.o" \
+"CMakeFiles/hashbase.dir/src/frontend/components/add_record.cpp.o" \
+"CMakeFiles/hashbase.dir/src/frontend/components/main_menu.cpp.o" \
+"CMakeFiles/hashbase.dir/src/frontend/components/remove_record.cpp.o" \
+"CMakeFiles/hashbase.dir/src/frontend/components/search_record.cpp.o" \
 "CMakeFiles/hashbase.dir/src/frontend/window.cpp.o" \
+"CMakeFiles/hashbase.dir/src/main.cpp.o" \
 "CMakeFiles/hashbase.dir/src/services/db_service.cpp.o" \
+"CMakeFiles/hashbase.dir/src/services/ui_service.cpp.o" \
 "CMakeFiles/hashbase.dir/src/test/unit_tests.cpp.o"
 
 # External object files for target hashbase
 hashbase_EXTERNAL_OBJECTS =
 
-hashbase: CMakeFiles/hashbase.dir/src/core/main.cpp.o
 hashbase: CMakeFiles/hashbase.dir/src/core/database.cpp.o
 hashbase: CMakeFiles/hashbase.dir/src/core/hash.cpp.o
+hashbase: CMakeFiles/hashbase.dir/src/frontend/components/add_record.cpp.o
+hashbase: CMakeFiles/hashbase.dir/src/frontend/components/main_menu.cpp.o
+hashbase: CMakeFiles/hashbase.dir/src/frontend/components/remove_record.cpp.o
+hashbase: CMakeFiles/hashbase.dir/src/frontend/components/search_record.cpp.o
 hashbase: CMakeFiles/hashbase.dir/src/frontend/window.cpp.o
+hashbase: CMakeFiles/hashbase.dir/src/main.cpp.o
 hashbase: CMakeFiles/hashbase.dir/src/services/db_service.cpp.o
+hashbase: CMakeFiles/hashbase.dir/src/services/ui_service.cpp.o
 hashbase: CMakeFiles/hashbase.dir/src/test/unit_tests.cpp.o
 hashbase: CMakeFiles/hashbase.dir/build.make
 hashbase: CMakeFiles/hashbase.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable hashbase"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable hashbase"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/hashbase.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

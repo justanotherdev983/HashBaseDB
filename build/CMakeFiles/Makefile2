@@ -81,12 +81,12 @@ clean: CMakeFiles/hashbase.dir/clean
 CMakeFiles/hashbase.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashbase.dir/build.make CMakeFiles/hashbase.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target hashbase"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/boudewijn/code/c/HashBaseDB/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12 "Built target hashbase"
 .PHONY : CMakeFiles/hashbase.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/hashbase.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/boudewijn/code/c/HashBaseDB/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/boudewijn/code/c/HashBaseDB/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/hashbase.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/boudewijn/code/c/HashBaseDB/build/CMakeFiles 0
 .PHONY : CMakeFiles/hashbase.dir/rule
