@@ -1,3 +1,0 @@
-namespace User_interface {
-
-}
