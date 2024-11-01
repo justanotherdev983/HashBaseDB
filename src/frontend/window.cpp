@@ -132,7 +132,6 @@ namespace Window {
                         break;
                     case Types::Screen::SEARCH_RECORD:
                         Search_record::render();
-
                         break;
                 }
 

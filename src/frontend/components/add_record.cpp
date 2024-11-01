@@ -16,7 +16,18 @@ namespace Add_record {
         UI::render_card(UI::get_padding(), UI::get_padding(), cardWidth, cardHeight);
 
         // Render back button
-        Types::Button backButton = { /* Initialize with appropriate values */ };
+        SDL_Rect backButtonRect = {
+            UI::get_padding(), 
+            UI::get_padding(), 
+            100,  // Adjust width to fit "Back" text
+            40    // Standard button height
+        };
+        Types::Button backButton = { 
+            backButtonRect, 
+            "Back", 
+            false,   // not disabled 
+            false    // not selected
+        };
         UI::render_button(backButton);
 
         // Title text for "Add New Record" screen
@@ -39,8 +50,8 @@ namespace Add_record {
             cardWidth - UI::get_padding() * 4, 40
         };
 
-        bool isUUIDActive = true;// TODO: add logic for this
-        UI::render_input_box(UUIDRect.x, UUIDRect.y, UUIDRect.w, UUIDRect.h, UI::get_new_record_value(), isUUIDActive);
+        UI::render_input_box(UUIDRect.x, UUIDRect.y, UUIDRect.w, UUIDRect.h, 
+                              UI::get_current_UUID(), UI::is_uuid_input_active());
 
         // Record input field
         int inputY = UI::get_padding() * 4 + 150;
@@ -53,8 +64,8 @@ namespace Add_record {
             cardWidth - UI::get_padding() * 4 - UI::get_button_width() - UI::get_padding(), 40
         };
 
-        bool isInputActive = true; // TODO: add logic for this
-        UI::render_input_box(inputRect.x, inputRect.y, inputRect.w, inputRect.h, UI::get_new_record_value(), isInputActive);
+        UI::render_input_box(inputRect.x, inputRect.y, inputRect.w, inputRect.h, 
+                              UI::get_current_input_value(), UI::is_value_input_active());
 
         // "New" button next to the input field
         SDL_Rect newButtonRect = {
@@ -64,10 +75,18 @@ namespace Add_record {
         Types::Button newButton = { newButtonRect, "New", false, false };
         UI::render_button(newButton);
 
+        // Render added values
+        int valuesY = inputY + 50;
+        for (const auto& value :  UI::get_current_values()) {
+            UI::render_text(value, UI::get_padding() * 2, valuesY, 
+                             titleTypesColor, UI::get_font());
+            valuesY += 25;
+        }
+
         // "Add" button centered below
         SDL_Rect addButtonRect = {
             UI::get_window_width() / 2 - UI::get_button_width() / 2, 
-            inputY + 50, 
+            valuesY + 20, 
             UI::get_button_width(), UI::get_button_height()
         };
         Types::Button addButton = { addButtonRect, "Add", false, false };

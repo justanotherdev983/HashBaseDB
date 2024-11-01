@@ -41,9 +41,6 @@ namespace Main_menu {
                         UI::get_window_height() / 7 - 20, 
                         titleColor, UI::get_title_font());
 
-        // Ensure mainMenuButtons is defined and initialized properly
-        // Example: 
-        // std::vector<Types::Button> mainMenuButtons = { /* Initialize with appropriate button values */ };
 
         for (const auto& button : UI::main_menu_buttons) {
             UI::render_button(button);

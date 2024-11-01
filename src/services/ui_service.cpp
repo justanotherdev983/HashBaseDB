@@ -11,8 +11,9 @@
 namespace UI {
     std::vector<Types::Button> main_menu_buttons = {
         {{400, 200, 200, 50}, "Add Record", false, false},
-        {{400, 300, 200, 50}, "View Data", false, false},
-        {{400, 400, 200, 50}, "Exit", false, true}
+        {{400, 300, 200, 50}, "Search Record", false, false}, 
+        {{400, 400, 200, 50}, "Remove Record", false, false}, 
+        {{400, 500, 200, 50}, "Exit", false, true}
     };
 
     Types::Screen currentScreen = Types::Screen::MAIN_MENU;
@@ -20,10 +21,25 @@ namespace UI {
     Types::Button backButton = {{10, 10, 100, 30}, "Back", false, false};
     Types::Record newRecord;
     std::string searchQuery;
+    std::string newRecordUUID;
 
     std::string newRecordValue;
     bool isInputActive = false;
     std::vector<std::string> recordValues;
+
+    std::string currentUUID;
+    std::vector<std::string> currentValues;
+    std::string currentInputValue;
+    bool isUUIDInputActive = true;
+    bool isValueInputActive = false;
+
+    void reset_input_state() {
+        currentUUID.clear();
+        currentValues.clear();
+        currentInputValue.clear();
+        isUUIDInputActive = true;
+        isValueInputActive = false;
+    }
 
     void render_background(SDL_Renderer* renderer) {
         // Clear Screen with gradient background
@@ -148,63 +164,121 @@ namespace UI {
     bool handle_click(int x, int y) {
         if (currentScreen != Types::Screen::MAIN_MENU) {
             const SDL_Rect& backRect = backButton.rect;
-            if (x >= backRect.x && x < backRect.x + backRect.w && y >= backRect.y && y < backRect.y + backRect.h) {
-                currentScreen = Types::Screen::MAIN_MENU;
-                return true;
+            if (x >= backRect.x - PADDING && 
+                x < backRect.x + backRect.w + PADDING && 
+                y >= backRect.y - PADDING && 
+                y < backRect.y + backRect.h + PADDING) {
+                    currentScreen = Types::Screen::MAIN_MENU;
+                    return true;
             }
         }
 
         if (currentScreen == Types::Screen::MAIN_MENU) {
-            for (size_t i = 0; i < main_menu_buttons.size(); i++) {
-                const SDL_Rect& rect = main_menu_buttons[i].rect;
+            for (const auto& button : main_menu_buttons) {
+                const SDL_Rect& rect = button.rect;
                 if (x >= rect.x && x < rect.x + rect.w && y >= rect.y && y < rect.y + rect.h) {
-                    if (i == 0) currentScreen = Types::Screen::SEARCH_RECORD;
-                    else if (i == 1) currentScreen = Types::Screen::ADD_RECORD;
-                    else if (i == 2) return false;
+                    if (button.text == "Add Record") currentScreen = Types::Screen::ADD_RECORD;
+                    else if (button.text == "Search Record") currentScreen = Types::Screen::SEARCH_RECORD;
+                    else if (button.text == "Remove Record") currentScreen = Types::Screen::REMOVE_RECORD;
+                    else if (button.text == "Exit") return false;
                     break;
                 }
             }
         } else if (currentScreen == Types::Screen::ADD_RECORD) {
-            SDL_Rect inputRect = {
-                PADDING * 2,
-                PADDING * 4 + 30,
-                WINDOW_WIDTH - PADDING * 4,
+            // UUID input box
+            SDL_Rect uuidRect = {
+                UI::get_padding() * 2,
+                UI::get_padding() * 4 + 90,
+                UI::get_window_width() - UI::get_padding() * 4, 
                 40
             };
 
-            if (x >= inputRect.x && x < inputRect.x + inputRect.w && y >= inputRect.y && y < inputRect.y + inputRect.h) {
-                isInputActive = true;
-            } else {
-                isInputActive = false;
-            }
-
-            SDL_Rect addRect = {
-                WINDOW_WIDTH / 2 - BUTTON_WIDTH / 2,
-                PADDING * 4 + 40 * 4,
-                BUTTON_WIDTH,
-                BUTTON_HEIGHT
+            // Value input box
+            SDL_Rect inputRect = {
+                UI::get_padding() * 2, 
+                UI::get_padding() * 4 + 250,
+                UI::get_window_width() - UI::get_padding() * 4 - UI::get_button_width() - UI::get_padding(), 
+                40
             };
 
-            if (x >= addRect.x && x < addRect.x + addRect.w && y >= addRect.y && y < addRect.y + addRect.h) {
-                recordValues.push_back(newRecordValue);
-                newRecordValue.clear();
-                currentScreen = Types::Screen::MAIN_MENU;
-            }
-        }
+            // New button rect
+            SDL_Rect newButtonRect = {
+                inputRect.x + inputRect.w + UI::get_padding(), inputRect.y,
+                UI::get_button_width(), UI::get_button_height()
+            };
 
-        return true;
+            // Add button rect
+            SDL_Rect addButtonRect = {
+                UI::get_window_width() / 2 - UI::get_button_width() / 2, 
+                inputRect.y + 50, 
+                UI::get_button_width(), UI::get_button_height()
+            };
+
+            // Check UUID input box click
+            if (x >= uuidRect.x - PADDING && x < uuidRect.x + uuidRect.w + PADDING && 
+                y >= uuidRect.y - PADDING && y < uuidRect.y + uuidRect.h) {
+                isUUIDInputActive = true;
+                isValueInputActive = false;
+                return true;
+            }
+
+            // Check Value input box click
+            if (x >= inputRect.x - PADDING && x < inputRect.x + inputRect.w + PADDING && 
+                y >= inputRect.y - PADDING && y < inputRect.y + inputRect.h) {
+                isUUIDInputActive = false;
+                isValueInputActive = true;
+                return true;
+            }
+
+            // Check New button click
+            if (x >= newButtonRect.x - PADDING && x < newButtonRect.x + newButtonRect.w + PADDING &&
+                y >= newButtonRect.y - PADDING && y < newButtonRect.y + newButtonRect.h) {
+                // Add current input value to values list if not empty
+                if (!currentInputValue.empty()) {
+                    currentValues.push_back(currentInputValue);
+                    currentInputValue.clear();
+                }
+                return true;
+            }
+
+            // Check Add button click
+            if (x >= addButtonRect.x - PADDING && x < addButtonRect.x + addButtonRect.w + PADDING &&
+                y >= addButtonRect.y - PADDING && y < addButtonRect.y + addButtonRect.h) {
+                // TODO: Add the add_record func from db_service here
+                std::cout << "UUID: " << currentUUID << std::endl;
+                std::cout << "Values:" << std::endl;
+                for (const auto& value : currentValues) {
+                    std::cout << "- " << value << std::endl;
+                }
+
+                // Reset input state after adding
+                reset_input_state();
+                return true;
+            }
+
+            return true;
+        }
     }
 
     void handle_keyboard(SDL_Event& event) {
-        if (currentScreen == Types::Screen::ADD_RECORD && isInputActive) {
+        if (currentScreen == Types::Screen::ADD_RECORD) {
             if (event.type == SDL_KEYDOWN) {
-                if (event.key.keysym.sym == SDLK_BACKSPACE && !newRecordValue.empty()) {
-                    newRecordValue.pop_back();
-                } else if (event.key.keysym.sym == SDLK_RETURN) {
-                    recordValues.push_back(newRecordValue);
-                    newRecordValue.clear();
-                } else if (event.key.keysym.sym != SDLK_RETURN) {
-                    newRecordValue += event.key.keysym.sym;
+                if (isUUIDInputActive) {
+                    // UUID input handling
+                    if (event.key.keysym.sym == SDLK_BACKSPACE && !currentUUID.empty()) {
+                        currentUUID.pop_back();
+                    } else if (event.key.keysym.sym != SDLK_RETURN) {
+                        // Ignore RETURN and add other characters
+                        currentUUID += static_cast<char>(event.key.keysym.sym);
+                    }
+                } else if (isValueInputActive) {
+                    // Value input handling
+                    if (event.key.keysym.sym == SDLK_BACKSPACE && !currentInputValue.empty()) {
+                        currentInputValue.pop_back();
+                    } else if (event.key.keysym.sym != SDLK_RETURN) {
+                        // Ignore RETURN and add other characters
+                        currentInputValue += static_cast<char>(event.key.keysym.sym);
+                    }
                 }
             }
         }
@@ -260,6 +334,10 @@ namespace UI {
         return currentScreen == Types::Screen::REMOVE_RECORD;
     }
 
+    std::string get_new_record_uuid() {
+        return newRecordUUID;
+    }
+
     TTF_Font* get_title_font() {
         return Window::titleFont;
     }
@@ -278,6 +356,12 @@ namespace UI {
     std::string get_new_record_value() {
         return newRecordValue;
     }
+
+    std::string get_current_UUID() { return currentUUID; }
+    std::vector<std::string> get_current_values() { return currentValues; }
+    std::string get_current_input_value() { return currentInputValue; }
+    bool is_uuid_input_active() { return isUUIDInputActive; }
+    bool is_value_input_active() { return isValueInputActive; }
 
 
 
