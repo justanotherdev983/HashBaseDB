@@ -74,9 +74,16 @@ namespace UI {
     SDL_Color get_text_dark_color();
 
     std::string get_new_record_value();
+    std::string get_new_record_uuid();
 
     TTF_Font* get_title_font();
     TTF_Font* get_font();
+
+    std::string get_current_UUID();
+    std::vector<std::string> get_current_values();
+    std::string get_current_input_value();
+    bool is_uuid_input_active();
+    bool is_value_input_active();
 
     void render_input_box(int x, int y, int width, int height, const std::string& inputText, bool isActive);
 
