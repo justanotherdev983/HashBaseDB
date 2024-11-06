@@ -15,8 +15,6 @@ namespace Window {
     TTF_Font* titleFont = nullptr;
 
     bool initialize() {
-        //cleanup();
-
         if (SDL_Init(SDL_INIT_VIDEO) < 0) {
             std::cout << "SDL initialization failed: " << SDL_GetError() << std::endl;
             return false;

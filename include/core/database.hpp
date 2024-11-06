@@ -14,4 +14,5 @@ namespace Database {
     void remove_entry(const std::string& key);
     std::vector<std::string> get_val(const std::string& id_from_user);
     void print_debug_info();
+    void debug_file_stream(std::fstream& file, const std::string& operation_name);
 }
