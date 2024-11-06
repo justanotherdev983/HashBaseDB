@@ -33,13 +33,7 @@ namespace UI {
     const SDL_Color BORDER_COLOR = { 50, 50, 50, 255 };            // Dark gray for borders
 
     extern std::vector<Types::Button> main_menu_buttons;
-    
     extern Types::Screen currentScreen;
-
-    
-
-    
-    
 
     void draw_rounded_rectangle(SDL_Renderer* renderer, int x, int y, int w, int h, int radius);
 
