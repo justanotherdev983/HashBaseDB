@@ -9,7 +9,7 @@ A high-performance key-value store with an easy-to-use SDL interface, written fo
 - **Simple SDL interface**: A custom user interface built using SDL for easy interaction.
 - **Efficient storage**: Binary storage format for fast data retrieval.
 
-## Hashbase Project Structure
+# Hashbase Project Structure
 
 ## Database Files
 
@@ -47,11 +47,6 @@ A high-performance key-value store with an easy-to-use SDL interface, written fo
   - **Test Headers**
     - `test/`
       - `unit_tests.hpp` - Unit test definitions
-
-## Build Output
-
-- `output/`
-  - `hashmap.h` - Generated hash map header
 
 ## Source Files
 
