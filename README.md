@@ -115,3 +115,17 @@ flowchart TD
     Y --> AB[Database::cleanup]
     AA --> AC[UI_service::cleanup]
 ```
+
+# Bugs/Todo
+
+    ##Todo -
+    LSM support using SSTables (not enough time)
+    Binary format storage
+    expanding unit tests
+
+    ##Bugs -
+    Weird search bug
+
+# Documentation
+
+    Go to docs/design.md
