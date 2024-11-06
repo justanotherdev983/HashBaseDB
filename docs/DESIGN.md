@@ -4,6 +4,14 @@
 
 HashBaseDB is a custom (unsafe) NoSQL file-based database engine built with C++ focusing on performance, scalability, and ease of use. The project is designed to handle key-value pairs stored in a file system, using hashing techniques for efficient search and retrieval, with further extensibility for an SDL-based user interface.
 
+## Language en technologies
+
+- **C++** I began this project in plain C, while at the time i thought this was a great choice, i switched during development because of the lack of features it provides and the unsafe nature of the language. So instead i settled on something i haven't used before, C++. C++ is an excellent language for programming that can handle its own memory. So it shall be used responsibly. I choose it, because you have alot of freedom in the language and it is also very fun. This is my first time using the language and i will use it further down the line.
+
+- **SDL** I choose SDL for one 2 reasons. The first is that it is relativly simple to use while giving you alot of power. The second is that i wanted to try something new and primarly ued in C++.
+
+- **CMake** For my build system i used CMake, because it is the industry standard and not that difficult to use. I had no problems with it.
+
 ## Architectural Decisions
 
 ### 1. **File-Based Storage**
