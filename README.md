@@ -2,6 +2,8 @@
 
 A high-performance (unsafe) key-value store database engine with an easy-to-use SDL interface, written for Linux systems.
 
+Made by Boudewijn van der Heide 5vwo
+
 ## Features
 
 - **O(1) lookups**: Fast search times for keys.
