@@ -1,6 +1,6 @@
 # HashbaseDB: Custom NoSQL Database Engine
 
-A high-performance key-value store with an easy-to-use SDL interface, written for Linux systems.
+A high-performance (unsafe) key-value store database engine with an easy-to-use SDL interface, written for Linux systems.
 
 ## Features
 
