@@ -8,6 +8,8 @@ A high-performance key-value store with an easy-to-use SDL interface, written fo
 - **Multiple values per key**: Store multiple values for a single key using a vector-based structure.
 - **Simple SDL interface**: A custom user interface built using SDL for easy interaction.
 - **Efficient storage**: Binary storage format for fast data retrieval.
+- **No shortcuts**: Uses no already implemented function/datastructurs from std library.
+- **No random OOP usage**: C++ programs often use OOP and classes without a specific reason, we don't do that here. Namespaces are plenty // Go read design doc.
 
 # Hashbase Project Structure
 
