@@ -1,6 +1,6 @@
 # HashbaseDB: Custom NoSQL Database Engine
 
-A high-performance key-value store with an easy-to-use SDL interface.
+A high-performance key-value store with an easy-to-use SDL interface, written for Linux systems.
 
 ## Features
 
@@ -11,73 +11,101 @@ A high-performance key-value store with an easy-to-use SDL interface.
 
 ## Project Structure
 
-── database
-│ ├── index.idx
-│ └── winkel.db
-├── docs
-│ ├── API.md
-│ ├── DESIGN.md
-│ └── notes.md
-├── include
-│ ├── core
-│ │ ├── database.hpp
-│ │ ├── hash.hpp
-│ │ └── trim.hpp
-│ ├── frontend
-│ │ ├── components
+HashbaseDB/
+├── database/ # Database files
+│ ├── index.idx # Index file for O(1) lookups
+│ └── winkel.db # Main database storage
+│
+├── docs/ # Documentation
+│ └── DESIGN.md # Design decisions
+│
+│
+├── include/ # Header files
+│ ├── core/ # Core database functionality
+│ │ ├── database.hpp # Database operations
+│ │ ├── hash.hpp # Hashing functions
+│ │ └── trim.hpp # String utilities
+│ │
+│ ├── frontend/ # UI-related headers
+│ │ ├── components/ # UI components
 │ │ │ ├── add_record.hpp
 │ │ │ ├── main_menu.hpp
 │ │ │ ├── remove_record.hpp
 │ │ │ └── search_record.hpp
-│ │ ├── types.hpp
-│ │ └── window.hpp
-│ ├── services
-│ │ ├── db_service.hpp
-│ │ └── ui_service.hpp
-│ └── test
-│ └── unit_tests.hpp
-├── output
-│ └── hashmap.h
-└── src
-├── core
-│ ├── database.cpp
-│ └── hash.cpp
-├── frontend
-│ ├── components
+│ │ ├── types.hpp # UI type definitions
+│ │ └── window.hpp # Window management
+│ │
+│ ├── services/ # Service layer headers
+│ │ ├── db_service.hpp # Database service
+│ │ └── ui_service.hpp # UI service
+│ │
+│ └── test/ # Test headers
+│ └── unit_tests.hpp # Unit test definitions
+│
+├── output/ # Build output
+│ └── hashmap.h # Generated hash map header
+│
+└── src/ # Source files
+├── core/ # Core implementations
+│ ├── database.cpp # Database operations
+│ └── hash.cpp # Hash functions
+│
+├── frontend/ # UI implementations
+│ ├── components/ # UI component implementations
 │ │ ├── add_record.cpp
 │ │ ├── main_menu.cpp
 │ │ ├── remove_record.cpp
 │ │ └── search_record.cpp
-│ └── window.cpp
-├── main.cpp
-├── services
-│ ├── db_service.cpp
-│ └── ui_service.cpp
-└── test
-└── unit_tests.cpp
+│ └── window.cpp # Window management
+│
+├── services/ # Service implementations
+│ ├── db_service.cpp # Database service
+│ └── ui_service.cpp # UI service
+│
+├── test/ # Test implementations
+│ └── unit_tests.cpp # Unit test suite
+│
+└── main.cpp # Application entry point
 
 # Dependencies
 
-    SDL2, cmake, clang
+    cmake, clang, SDL2
 
-# Program flow diagram
+# How to run
 
+    $cmake
+    $cd build && make
+    $./hashbase
+
+## Program Flow Diagram
+
+```mermaid
 flowchart TD
-A[main.cpp] --> B[Database_service::run]
-B --> C[UI_service::initialize]
-B --> D[Database::init_db]
-B --> E[UI_service::run]
-E --> F[Event Loop]
-F --> G[Handle Input]
-F --> H[Render Screen]
-G --> I[User Actions]
-I --> J[Add Record]
-I --> K[Search Records]
-I --> L[View Data]
-J --> M[Database_service::add_record]
-K --> N[Database_service::search_database]
-M --> O[Database::insert_entry]
-N --> P[Database File Operations]
-B --> Q[Cleanup]
-Q --> R[Database::cleanup_db]
-Q --> S[UI_service::cleanup]
+    A[main.cpp] --> B[Database_service::run]
+    B --> D[UI_service::initialize]
+    D --> E[Window::initialize]
+    E --> F[Window::switch_screen]
+    F --> G[Main Menu Screen]
+    F --> H[Add Record Screen]
+    F --> I[Remove Record Screen]
+    F --> J[Search Record Screen]
+    G --> K[UI_service::main_menu]
+    H --> L[UI_service::add_record]
+    I --> M[UI_service::remove_record]
+    J --> N[UI_service::search_record]
+    K --> O[Database_service::add_record]
+    L --> P[Database_service::search_database]
+    M --> Q[Database_service::insert_entry]
+    P --> R[Database::search_functionality]
+    Q --> S[Database::insert_entry]
+    O --> T[Database::use_hash]
+    P --> U[Database::use_hash]
+    R --> V[Database::use_types]
+    S --> W[Database::use_types]
+    B --> X[Database::init_db]
+    B --> Y[Database::cleanup_db]
+    B --> Z[UI_service::cleanup]
+    Z --> AA[Window::cleanup]
+    Y --> AB[Database::cleanup]
+    AA --> AC[UI_service::cleanup]
+```
