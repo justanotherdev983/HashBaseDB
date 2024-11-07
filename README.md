@@ -128,7 +128,7 @@ flowchart TD
     expanding unit tests
 
     ##Bugs -
-    Weird search bug
+    Padding is off on new button, and the search fields
 
 # Documentation
 

@@ -57,36 +57,3 @@ namespace Database_service {
         Database::remove_entry(key);
     }
 }
-
-/*
-
-std::vector<std::string> search_database(const std::string& key) {
-        std::vector<std::string> results;
-        Database::database_file.clear();
-        Database::database_file.seekg(0);
-        Database::index_file.clear();
-        Database::index_file.seekg(0);
-        std::string db_line;
-        std::string idx_line;
-
-        uint64_t hashed_key = Hash::hashify(key);
-        std::string hashed_key_str = std::to_string(hashed_key);
-
-        size_t i = 0;
-        while (std::getline(Database::database_file, db_line)) {
-            std::getline(Database::index_file, idx_line);
-
-            if (idx_line.rfind("d", 0) == 0) {
-                continue;
-            }
-            // Check if the line starts with the hashed key
-            if (db_line.rfind(hashed_key_str + ", ", 0) == 0) { // Asserting ',
-' is the separator results.push_back(db_line.substr(hashed_key_str.size() + 2));
-// Skip the hashed key and separator
-            }
-            ++i;
-        }
-        return results;
-    }
-
-*/
