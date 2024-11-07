@@ -221,7 +221,7 @@ namespace Database {
             lines.push_back(line);
         }
 
-        // Reopen the index file in write mode, truncating it
+        // Reopen the index file in write mode
         index_file.close();  
         index_file.open("../database/index.idx", std::ios::out | std::ios::app);  
 
