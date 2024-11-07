@@ -43,7 +43,7 @@ namespace Database {
 
         // Initialize the index file with empty buckets
         for (size_t i = 0; i < NUM_BUCKETS * BUCKET_SIZE; ++i) {
-            index_file << "0, 0\n";
+            //index_file << "0, 0\n";
         }
         index_file.flush();
 
@@ -79,118 +79,72 @@ namespace Database {
     std::vector<std::string> get_val(const std::string& id_from_user) {
         std::vector<std::string> values;
 
-        // Initial debug check
-        debug_file_stream(index_file, "Initial state");
-
         try {
-            Hash::debug_hash(id_from_user, NUM_BUCKETS, BUCKET_SIZE);
             uint64_t hashed_key = Hash::hashify(id_from_user);
+
+            // Debugging bucket calculation
             size_t bucket = Hash::get_bucket(hashed_key, NUM_BUCKETS);
+            int64_t bucket_position = Hash::calculate_bucket_position(bucket, BUCKET_SIZE, NUM_BUCKETS);
 
-            std::streampos bucket_pos = static_cast<std::streampos>(bucket * BUCKET_SIZE);
-            std::cout << "Searching bucket " << bucket << " at position " << bucket_pos << std::endl;
+            std::cout << "UUID: " << id_from_user << std::endl;
+            std::cout << "Hashed key: " << hashed_key << ", Bucket: " << bucket << ", Position: " << bucket_position << std::endl;
 
-            // Check file size and seek position
+            // Open the index file and read lines
             index_file.clear();
-            index_file.seekg(0, std::ios::end);
-            debug_file_stream(index_file, "After seeking to end");
-            std::streampos file_size = index_file.tellg();
-
-            if (file_size < 0) {
-                throw std::runtime_error("Could not determine file size");
-            }
-
-            if (bucket_pos >= file_size) {
-                std::cout << "Bucket position " << bucket_pos << " is beyond file size " << file_size << std::endl;
-                return values;
-            }
-
-            // Seek to the bucket position
-            index_file.clear();
-            index_file.seekg(bucket_pos);
-            debug_file_stream(index_file, "After seeking to bucket position");
-
-            if (!index_file.good()) {
-                throw std::runtime_error("Failed to seek to bucket position");
-            }
-
-            // Process the index file
-            database_file.clear();
-            debug_file_stream(database_file, "Database file initial state");
+            index_file.seekg(bucket_position);
 
             std::string line;
-            while (std::getline(index_file, line) && !line.empty()) {
-                std::cout << "Reading index line: " << line << std::endl;
-
-                // Skip deleted entries
-                if (line[0] == 'd') {
-                    std::cout << "Skipping deleted entry" << std::endl;
+            size_t lines_read = 0;
+            while (std::getline(index_file, line) && lines_read < BUCKET_SIZE) {
+                std::cout << "Index line: '" << line << "'" << std::endl;  // Debugging line reading
+                if (line.empty() || line == "0, 0") {
+                    ++lines_read;
                     continue;
                 }
 
-                if(line == "0, 0") {
-                    std::cout << "Skipping empty entry" << std::endl;
-                    break;
+                std::istringstream iss(line);
+                uint64_t temp_key;
+                long int offset;
+                char comma;
+
+                if (!(iss >> temp_key >> comma >> offset) || comma != ',') {
+                    std::cout << "Skipping malformed index line: " << line << std::endl;
+                    ++lines_read;
+                    continue;
                 }
 
-                // Check if the line can be parsed correctly
-                try {
-                    std::istringstream iss(line);
-                    uint64_t temp_key;
-                    long int offset;
-                    char comma;
+                if (temp_key == hashed_key) {
+                    std::cout << "Found matching index line, seeking to offset: " << offset << std::endl;
 
-                    if (!(iss >> temp_key >> comma >> offset)) {
-                        throw std::runtime_error("Failed to parse index line: " + line);
-                    }
+                    // Seek to the database file at the matched offset
+                    database_file.clear();
+                    database_file.seekg(offset);
 
-                    if (temp_key == hashed_key) {
-                        std::cout << "Found matching key in index! Offset: " << offset << std::endl;
-
-                        // Read from the database file
-                        database_file.clear();
-                        database_file.seekg(offset);
-                        debug_file_stream(database_file, "After seeking to database offset");
-
-                        std::string db_line;
-                        if (std::getline(database_file, db_line)) {
-                            std::cout << "Read database line: " << db_line << std::endl;
-
-                            size_t sep_pos = db_line.find(SEPARATOR);
-                            if (sep_pos != std::string::npos) {
-                                values.push_back(db_line.substr(sep_pos + strlen(SEPARATOR)));
-                                std::cout << db_line << std::endl;
-                                return values;  // Found our entry
-                                //break;  // Found our entry
-                            } else {
-                                throw std::runtime_error("Separator not found in database line");
-                            }
+                    std::string db_line;
+                    if (std::getline(database_file, db_line)) {
+                        std::cout << "Database line at offset " << offset << ": " << db_line << std::endl;
+                        size_t sep_pos = db_line.find(SEPARATOR);
+                        if (sep_pos != std::string::npos) {
+                            values.push_back(db_line.substr(sep_pos + strlen(SEPARATOR)));
                         } else {
-                            throw std::runtime_error("Failed to read database line at offset");
+                            std::cout << "Separator not found in database line: " << db_line << std::endl;
                         }
+                    } else {
+                        std::cout << "Failed to read database line at offset " << offset << std::endl;
                     }
-                } catch (const std::runtime_error& e) {
-                    std::cout << "Error processing index line: " << e.what() << std::endl;
-                    // Skip the line if it's malformed and continue
-                    continue;
                 }
+                ++lines_read;
             }
-        } catch (const Hash::HashingError& e) {
-            std::cout << "Hashing error: " << e.what() << std::endl;
-        } catch (const Hash::BucketError& e) {
-            std::cout << "Bucket error: " << e.what() << std::endl;
         } catch (const std::runtime_error& e) {
             std::cout << "Runtime error: " << e.what() << std::endl;
         }
 
-        // Final state check
-        debug_file_stream(index_file, "Final index file state");
-        debug_file_stream(database_file, "Final database file state");
+        if (values.empty()) {
+            std::cout << "No records found for UUID: " << id_from_user << std::endl;
+        }
 
         return values;
     }
-
-
 
     void insert_entry(const std::string& key, const std::vector<std::string>& values) {
         Hash::debug_hash(key, NUM_BUCKETS, BUCKET_SIZE);
@@ -267,7 +221,7 @@ namespace Database {
             lines.push_back(line);
         }
 
-        // Reopen the index file in write mode, truncating it
+        // Reopen the index file in write mode
         index_file.close();  
         index_file.open("../database/index.idx", std::ios::out | std::ios::app);  
 
